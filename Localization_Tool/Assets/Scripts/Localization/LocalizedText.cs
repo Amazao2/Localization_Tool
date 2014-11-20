@@ -11,10 +11,13 @@ public class LocalizedText : MonoBehaviour {
 
     public Text text;
 
+    // the variable that can be found in the message file
     public string variableName
     {
-        get{ return text.text; }
+        // allows read-only view of the variable name in the editor
+        get { if (variable == null) return text.text; else { return variable; } }
     }
+    private string variable;
 
     private Lang lastLanguage;
 
@@ -22,6 +25,7 @@ public class LocalizedText : MonoBehaviour {
 	void Start () {
 
         lastLanguage = languageController.currentLanguage;
+        variable = text.text; // set the variable name to allow future reference
         text.text = fetchContent(); // set text to the correct value from the messages file
 	}
 	
