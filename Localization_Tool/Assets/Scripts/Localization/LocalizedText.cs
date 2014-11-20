@@ -37,18 +37,4 @@ public class LocalizedText : MonoBehaviour {
     {
         return languageController.get(variableName);
     }
-
-    //[System.Serializable]
-    //public class LanguageText {
-
-    //    public Lang language;
-    //    public string content;
-
-    //    public LanguageText(Lang lang, string text)
-    //    {
-    //        language = lang;
-    //        content = text; 
-    //    }
-
-    //}
 }

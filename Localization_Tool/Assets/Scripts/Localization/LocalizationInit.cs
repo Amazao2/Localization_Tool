@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Localization;
+using System.Linq;
 
 public class LocalizationInit : MonoBehaviour {
 
@@ -12,32 +13,40 @@ public class LocalizationInit : MonoBehaviour {
     public Lang defaultLanguage = new Lang("en");
 
     public List<Lang> supportedLanguages;
+
+    // used to query messages from file
+    private Messages messages;
     
     // absolute path to the messages folder
     private string absoluteMessagesPath
     {
-        get { print(Application.dataPath); return Application.dataPath + messagesFolderPath; }
-    }
+        get 
+        {            
+            string absolutePath = Application.dataPath + messagesFolderPath;
+            print("Application Data Path:" + Application.dataPath);
+            print("Absolute Path To Messages: " + absolutePath);
 
-    // used to query messages from file
-    private Messages messages;
+            return absolutePath;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
         // set language to default on initialization
         currentLanguage = defaultLanguage;
         messages = new Messages(currentLanguage, absoluteMessagesPath);
-
         supportedLanguages = getSupportedLanguages();
 	}
 
+    /** Switch the context of the scene to a new language.
+     * 
+     */ 
     public void changeLanguage(Lang newLang)
     {
-        var supported = getSupportedLanguages();
-
-        if( supported.Exists( l => { return l == newLang; }) )
+        if (supportedLanguages.Exists(l => { return l == newLang; }))
         {
             currentLanguage = newLang;
+            messages = new Messages(currentLanguage, absoluteMessagesPath);
         }
         else
         {
@@ -45,14 +54,19 @@ public class LocalizationInit : MonoBehaviour {
         }
     }
 
+    /** Fetch a string from the messages file.
+     */ 
     public string get(string variableName)
     {
         return messages.get(variableName);
     }
 
-    List<Lang> getSupportedLanguages()
+    public List<Lang> getSupportedLanguages()
     {
-        return messages.supportedLanguages();
+        var supported = messages.supportedLanguages();
+        print("Supported Languages: " + string.Join(", ", supported.Select(l => { return l.code; }).ToArray()));
+
+        return supported;
     }
 
 }

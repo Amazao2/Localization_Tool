@@ -55,6 +55,7 @@
     <Compile Include="Assets\Scripts\Localization\LocalizationInit.cs" />
     <Compile Include="Assets\Scripts\Localization\LocalizedText.cs" />
     <Compile Include="Assets\Scripts\Localization\Messages.cs" />
+    <Compile Include="Assets\Scripts\SwitchLanguage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
