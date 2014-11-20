@@ -11,7 +11,10 @@ public class LocalizedText : MonoBehaviour {
 
     public Text text;
 
-    public string variableName;
+    public string variableName
+    {
+        get{ return text.text; }
+    }
 
     private Lang lastLanguage;
 
@@ -19,7 +22,7 @@ public class LocalizedText : MonoBehaviour {
 	void Start () {
 
         lastLanguage = languageController.currentLanguage;
-        text.text = fetchContent();
+        text.text = fetchContent(); // set text to the correct value from the messages file
 	}
 	
 	// Update is called once per frame

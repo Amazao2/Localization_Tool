@@ -16,6 +16,6 @@ public class SwitchLanguage : MonoBehaviour {
         buttonText = button.GetComponentInChildren<Text>();
         buttonText.text = language.language;
 
-        button.onClick.AddListener(() => { print("CLICK!"); languageController.changeLanguage(language); });
+        button.onClick.AddListener(() => { languageController.changeLanguage(language); });
     }
 }
