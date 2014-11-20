@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Assets.Scripts.Localization;
 using System.Linq;
 
-public class LocalizationInit : MonoBehaviour {
+public class LocalizationController : MonoBehaviour {
 
     // where are the messages files being stored relative to the assets folder?
     public string messagesFolderPath;

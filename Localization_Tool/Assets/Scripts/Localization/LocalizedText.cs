@@ -7,7 +7,7 @@ using Assets.Scripts.Localization;
 
 public class LocalizedText : MonoBehaviour {
 
-    public LocalizationInit languageController;
+    public LocalizationController languageController;
 
     public Text text;
 

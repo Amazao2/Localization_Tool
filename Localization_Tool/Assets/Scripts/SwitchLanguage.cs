@@ -5,7 +5,7 @@ using Assets.Scripts.Localization;
 
 public class SwitchLanguage : MonoBehaviour {
 
-    public LocalizationInit languageController;
+    public LocalizationController languageController;
     public Button button;
     public Lang language;
 
