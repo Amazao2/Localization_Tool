@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\LocalizationControllerEditor.cs" />
+    <Compile Include="Assets\Editor\LocalizationMenuItems.cs" />
     <Compile Include="Assets\Editor\LocalizedTextEditor.cs" />
     <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll" />
     <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll" />

@@ -14,7 +14,7 @@ namespace Assets.Scripts.Localization
      *      convenience.
      */
     [System.Serializable]
-    public class Lang
+    public class Lang : IComparable<Lang>
     {
         public string language;
         public string code;
@@ -39,6 +39,11 @@ namespace Assets.Scripts.Localization
         public static bool operator !=(Lang l1, Lang l2)
         {
             return l1.code.ToLower() != l2.code.ToLower();
+        }
+
+        int IComparable<Lang>.CompareTo(Lang other)
+        {
+            return code.CompareTo(other.code);
         }
     }
 }
