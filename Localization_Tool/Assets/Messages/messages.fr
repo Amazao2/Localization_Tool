@@ -1,1 +1,3 @@
 scene1.ui.newGame=Noveau Jeu
+scene1.ui.button.english=Anglais
+scene1.ui.button.french=Francais
