@@ -13,16 +13,11 @@ namespace Assets.Scripts.Localization
      *      text representation of the language is just here for
      *      convenience.
      */
+    [System.Serializable]
     public class Lang
     {
         public string language;
         public string code;
-
-        public string lang
-        {
-            get { return language; }
-        }
-
         
         public Lang(String languageCode, String languageName)
         {
@@ -34,6 +29,16 @@ namespace Assets.Scripts.Localization
         {
             language = languageCode;
             code = languageCode;
+        }
+
+        public static bool operator ==(Lang l1, Lang l2)
+        {
+            return l1.code.ToLower() == l2.code.ToLower();
+        }
+
+        public static bool operator !=(Lang l1, Lang l2)
+        {
+            return l1.code.ToLower() != l2.code.ToLower();
         }
     }
 }
