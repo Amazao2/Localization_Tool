@@ -18,7 +18,7 @@ public class LocalizationController : MonoBehaviour {
     private Messages messages;
     
     // absolute path to the messages folder
-    private string absoluteMessagesPath
+    public string absoluteMessagesPath
     {
         get 
         {            
